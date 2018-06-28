@@ -21,9 +21,31 @@ client.query('SELECT table_schema,table_name FROM information_schema.tables;', (
 });
 */
 
+function addPixel(req, res) {
+  var x = req.query.x;
+  var y = req.query.y;
+  var r = req.query.r;
+  var g = req.query.g;
+  var b = req.query.b;
+  var a = req.query.a;
+  var username = req.query.username;
+  var request = 'INSERT INTO pixels (x, y, r, g, b, a, username) VALUES ($1, $2, $3, $4, $5, $6, $7);' ;
+  var values = [x, y, r, g, b, a, username];
+
+  client.query(request, values, (err, res) => {
+    if (err) {
+      res.render('pages/index');
+    } else {
+      res.render('pages/index');      
+    }
+  })
+}
+
 express()
   .use(express.static(path.join(__dirname, 'public')))
   .set('views', path.join(__dirname, 'views'))
   .set('view engine', 'ejs')
   .get('/', (req, res) => res.render('pages/index'))
+  .get('/add', addPixel(req, res))
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
+
