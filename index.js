@@ -46,6 +46,6 @@ express()
   .set('views', path.join(__dirname, 'views'))
   .set('view engine', 'ejs')
   .get('/', (req, res) => res.render('pages/index'))
-  .get('/add', addPixel(req, res))
+  //.get('/add', addPixel(req, res))
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
 
