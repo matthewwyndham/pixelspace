@@ -77,9 +77,9 @@ express()
     // will produce a timelapse. This can be handled with javascript.
     res.json
     ([
-      {x: "0", y: "0", r: "255", g: "255", b: "255", a: "1.0", username: "House"},
-      {x: "1", y: "1", r: "200", g: "200", b: "200", a: "1.0", username: "House"},
-      {x: "2", y: "2", r: "0",   g: "0",   b: "255", a: "1.0", username: "House"},
-      {x: "3", y: "3", r: "0",   g: "0",   b: "255", a: "1.0", username: "House"},
+      {x: "0", y: "0", r: "255", g: "255", b: "255", a: "1.0", username: "House", t: "2018-06-28 02:40:55.011356+00"},
+      {x: "1", y: "1", r: "200", g: "200", b: "200", a: "1.0", username: "House", t: "2018-06-28 02:40:55.011356+00"},
+      {x: "2", y: "2", r: "0",   g: "0",   b: "255", a: "1.0", username: "House", t: "2018-06-28 02:40:55.011356+00"},
+      {x: "3", y: "3", r: "0",   g: "0",   b: "255", a: "1.0", username: "House", t: "2018-06-28 02:40:55.011356+00"},
     ]);
   }
