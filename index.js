@@ -67,9 +67,9 @@ express()
         // TODO: turn this into a variable and return it to the user to display on the screen
         logs += JSON.stringify(row);
       }
-      res.json(logs);
+      res.json(logs); // this does not display
       client.end();
     });
 
-    res.json({pixels: "you got them!"});
+    res.json({pixels: "you got them!"}); // this does display...
   }
