@@ -54,8 +54,9 @@ express()
     });
     // this does insert values into the database at heroku
     // from the webpage
-    // I don't know how to give you access to that
-    res.json([{x: x},{y: y},{r: r},{g: g},{b: b},{a: a},{username: username}]);
+    // I don't know how to give you access to that, or show that without
+    // completely finishing the project.
+    res.json({x: y, y: y, r: r, g: g, b: b, a: a, username: username});
   }
 
   function getPixels(req, res) {
@@ -65,11 +66,20 @@ express()
       var logs = "";
       for (let row of res.rows) {
         // TODO: turn this into a variable and return it to the user to display on the screen
-        logs += JSON.stringify(row);
+        console.log(JSON.stringify(row));
       }
-      res.json(logs); // this does not display
       client.end();
     });
+    // TODO: fix this to display the rows.
+    // currently displays hard coded versions of the data
 
-    res.json({pixels: "you got them!"}); // this does display...
+    // This returns the data in timestamp order, so displaying them with intervals
+    // will produce a timelapse. This can be handled with javascript.
+    res.json
+    ([
+      {x: "0", y: "0", r: "255", g: "255", b: "255", a: "1.0", username: "House"},
+      {x: "1", y: "1", r: "200", g: "200", b: "200", a: "1.0", username: "House"},
+      {x: "2", y: "2", r: "0",   g: "0",   b: "255", a: "1.0", username: "House"},
+      {x: "3", y: "3", r: "0",   g: "0",   b: "255", a: "1.0", username: "House"},
+    ]);
   }
