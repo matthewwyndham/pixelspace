@@ -62,11 +62,12 @@ express()
     var request = 'SELECT * FROM pixels;';
     client.query(request, (err, res) => {
       if (err) throw err;
+      var logs = "";
       for (let row of res.rows) {
         // TODO: turn this into a variable and return it to the user to display on the screen
-        console.log(JSON.stringify(row));
+        logs += JSON.stringify(row);
       }
-
+      res.json(logs);
       client.end();
     });
 
