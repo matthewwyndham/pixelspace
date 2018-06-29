@@ -42,7 +42,7 @@ function addPixel(req, res) {
     }
   })
 
-  
+  res.json({end: "true"});
 }
 
 express()
