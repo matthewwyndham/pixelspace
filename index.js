@@ -34,9 +34,9 @@ function addPixel(req, res) {
 
   client.query(request, values, (err, res) => {
     if (err) {
-      res.render('pages/index');
+      console.log("error " + err);
     } else {
-      res.render('pages/index');      
+      console.log("Adding to database")    
     }
   })
 }
@@ -46,6 +46,6 @@ express()
   .set('views', path.join(__dirname, 'views'))
   .set('view engine', 'ejs')
   .get('/', (req, res) => res.render('pages/index'))
-  //.get('/add', addPixel(req, res))
+  .get('/add', addPixel)
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
 
