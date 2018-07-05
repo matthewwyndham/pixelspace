@@ -41,9 +41,9 @@ express()
     var request = 'INSERT INTO pixels (x, y, r, g, b, a, username) VALUES ($1, $2, $3, $4, $5, $6, $7);' ;
     var values = [x, y, r, g, b, a, username];
   
-    client.query(request, values, (err, res) => {
-      if (err) {
-        console.log("error " + err);
+    client.query(request, values, (e, r) => {
+      if (e) {
+        console.log("error " + e);
         res.json({success: "false"})
       }
         console.log("Adding to database");
