@@ -15,7 +15,6 @@
     <div id="pixelbox"></div>
 </div>
 <div class="container">
-  <p>pixel box</p>
   <table>
     <% for(var y=0; y<256; y++) { %>
       <tr>
@@ -25,7 +24,7 @@
       </tr>
     <% } %>
   </table>
-    
+  <button type="button" class="btn btn-primary" onclick="refresh()">Refresh</button>
   
   <p>Submit new pixel</p>
   <form action="/add">
@@ -38,6 +37,17 @@
     Username: <input type="text" name="username" value="anonymous">
     <input class="btn btn-success" type="submit" value="Submit">
   </form>
+
+  <script>
+  function refresh() {
+    $.ajax({url: "/allPixels", success: function(result) {
+      result.forEach(row => {
+        $.("#x" + row.x + "y" + row.y).style.background-color = rgba(row.r, row.g, row.b, row.a);
+      });
+    }});
+  }
+  </script>
+
 </div>
 
 
