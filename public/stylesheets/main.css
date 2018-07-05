@@ -42,3 +42,8 @@ input {
   margin-top: 5px;
   color: #3b3b3b;
 }
+
+td {
+  width: 1px;
+  height: 1px;
+}
