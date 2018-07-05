@@ -50,7 +50,6 @@ express()
         
       client.end();
     });
-
     res.json({success: "true"});
 
     // this does insert values into the database at heroku
