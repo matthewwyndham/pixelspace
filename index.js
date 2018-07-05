@@ -45,10 +45,9 @@ express()
       if (err) {
         console.log("error " + err);
         res.json({success: "false"})
-      } else {
+      }
         console.log("Adding to database");
         res.json({success: "true"});
-      }
       client.end();
 
     });
