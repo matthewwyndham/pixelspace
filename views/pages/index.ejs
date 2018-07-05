@@ -16,6 +16,17 @@
 </div>
 <div class="container">
   <p>pixel box</p>
+  <table>
+    <% for(var y=0; y<256; y++) { %>
+      <tr>
+          <% for(var x=0; x<256; i++) { %>
+              <td id="<%= 'x' + x.toString() + 'y' + y.toString() %>"></td>
+           <% } %>
+      </tr>
+    <% } %>
+  </table>
+    
+  
   <p>Submit new pixel</p>
   <form action="/add">
     X: <input type="number" min="0" max="255" placeholder="0-255" name="x"><br/>
