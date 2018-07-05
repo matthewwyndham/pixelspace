@@ -56,7 +56,7 @@ express()
     // from the webpage
     // I don't know how to give you access to that, or show that without
     // completely finishing the project.
-    res.json({x: y, y: y, r: r, g: g, b: b, a: a, username: username});
+    // res.json({x: y, y: y, r: r, g: g, b: b, a: a, username: username});
   }
 
   function getPixels(req, res) {
