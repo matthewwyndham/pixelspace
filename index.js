@@ -47,10 +47,12 @@ express()
         res.json({success: "false"})
       }
         console.log("Adding to database");
-        res.json({success: "true"});
+        
       client.end();
-
     });
+
+    res.json({success: "true"});
+
     // this does insert values into the database at heroku
     // from the webpage
     // I don't know how to give you access to that, or show that without
