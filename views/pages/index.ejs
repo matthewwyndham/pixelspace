@@ -43,6 +43,7 @@
     $.ajax({url: "/allPixels", success: function(result) {
       result.forEach(row => {
         $.("#x" + (row.x).toString() + "y" + (row.y).toString()).css('backgroundColor', 'rgba(' + (row.r).toString() + ', ' + (row.g).toString() + ', ' + (row.b).toString() + ', ' + (row.a).toString() + ')');
+        console.log(row);
       });
     }});
   }
