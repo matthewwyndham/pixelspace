@@ -39,20 +39,20 @@
     <input class="btn btn-success" type="submit" value="Submit">
   </form>
 
-  <script>
-  function refresh() {
-    $.ajax({url: "/allPixels", success: function(result) {
-      console.log(result);
-      result.forEach(row => {
-        $.("#x" + (row.x).toString() + "y" + (row.y).toString()).css('backgroundColor', 'rgba(' + (row.r).toString() + ', ' + (row.g).toString() + ', ' + (row.b).toString() + ', ' + (row.a).toString() + ')');
-        console.log(row);
-      });
-    }});
-  }
-  </script>
+
 
 </div>
 
-
+<script>
+    function refresh() {
+      $.ajax({url: "/allPixels", success: function(result) {
+        console.log(result);
+        result.forEach(row => {
+          $.("#x" + (row.x).toString() + "y" + (row.y).toString()).css('backgroundColor', 'rgba(' + (row.r).toString() + ', ' + (row.g).toString() + ', ' + (row.b).toString() + ', ' + (row.a).toString() + ')');
+          console.log(row);
+        });
+      }});
+    }
+    </script>
 </body>
 </html>
