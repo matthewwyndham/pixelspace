@@ -16,9 +16,9 @@
 </div>
 <div class="container">
   <table>
-    <% for(var y=0; y<256; y++) { %>
+    <% for(var y=0; y<101; y++) { %>
       <tr>
-          <% for(var x=0; x<256; x++) { %>
+          <% for(var x=0; x<101; x++) { %>
               <td id="<%= 'x' + x.toString() + 'y' + y.toString() %>"></td>
            <% } %>
       </tr>
@@ -29,8 +29,8 @@
   
   <p>Submit new pixel</p>
   <form action="/add">
-    X: <input type="number" min="0" max="255" placeholder="0-255" name="x"> 
-    Y: <input type="number" min="0" max="255" placeholder="0-255" name="y"><br/>
+    X: <input type="number" min="0" max="100" placeholder="0-255" name="x"> 
+    Y: <input type="number" min="0" max="100" placeholder="0-255" name="y"><br/>
     RGBA: <input type="number" min="0" max="255" step="1" placeholder="0-255" name="r">
           <input type="number" min="0" max="255" step="1" placeholder="0-255" name="g">
           <input type="number" min="0" max="255" step="1" placeholder="0-255" name="b">
