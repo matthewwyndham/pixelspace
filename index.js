@@ -47,7 +47,7 @@ express()
         res.json({success: "false"})
       }
       res.json({x: y, y: y, r: r, g: g, b: b, a: a, username: username});
-      client.end();
+      //client.end();
     });
   }
 
