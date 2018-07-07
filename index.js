@@ -52,7 +52,7 @@ express()
   }
 
   function getPixels(req, res) {
-    var request = 'SELECT (x, y, r, g, b, a) FROM pixels;';
+    var request = 'SELECT x,y,r,g,b,a FROM pixels;';
     client.query(request, (err, database_stuff) => {
       if (err) throw err;
       res.json(database_stuff.rows);
