@@ -46,16 +46,9 @@ express()
         console.log("error " + e);
         res.json({success: "false"})
       }
-        console.log("Adding to database");
-        
+      res.json({x: y, y: y, r: r, g: g, b: b, a: a, username: username});
       client.end();
     });
-    
-    // this does insert values into the database at heroku
-    // from the webpage
-    // I don't know how to give you access to that, or show that without
-    // completely finishing the project.
-    res.json({x: y, y: y, r: r, g: g, b: b, a: a, username: username});
   }
 
   function getPixels(req, res) {
@@ -65,39 +58,4 @@ express()
       res.json(database_stuff.rows);
       client.end();
     });
-    // TODO: fix this to display the rows.
-    // currently displays hard coded versions of the data
-
-    // This returns the data in timestamp order, so displaying them with intervals
-    // will produce a timelapse. This can be handled with javascript.
-    // res.json
-    // ([
-    //   {x: "0", y: "0", r: "255", g: "255", b: "255", a: "1.0", username: "House", t: "2018-06-28 02:40:55.011356+00"},
-    //   {x: "1", y: "1", r: "200", g: "200", b: "200", a: "1.0", username: "House", t: "2018-06-28 02:40:55.011356+00"},
-    //   {x: "2", y: "2", r: "0",   g: "0",   b: "255", a: "1.0", username: "House", t: "2018-06-28 02:40:55.011356+00"},
-    //   {x: "3", y: "3", r: "0",   g: "0",   b: "255", a: "1.0", username: "House", t: "2018-06-28 02:40:55.011356+00"},
-    //   {x: "3", y: "4", r: "255", g: "0",   b: "0",   a: "1.0", username: "House", t: "2018-06-28 02:40:55.011356+00"},
-    //   {x: "4", y: "3", r: "255", g: "0",   b: "0",   a: "1.0", username: "House", t: "2018-06-28 02:40:55.011356+00"},
-    //   {x: "4", y: "4", r: "255", g: "0",   b: "0",   a: "1.0", username: "House", t: "2018-06-28 02:40:55.011356+00"},
-    //   {x: "5", y: "4", r: "255", g: "0",   b: "0",   a: "1.0", username: "House", t: "2018-06-28 02:40:55.011356+00"},
-    //   {x: "4", y: "5", r: "255", g: "0",   b: "0",   a: "1.0", username: "House", t: "2018-06-28 02:40:55.011356+00"},
-    //   {x: "10", y: "11", r: "0", g: "0", b: "255", a: "1.0", username: "House", t: "2018-07-04 02:40:55.011356+00"},
-    //   {x: "10", y: "12", r: "0", g: "0", b: "255", a: "1.0", username: "House", t: "2018-07-04 02:40:55.011356+00"},
-    //   {x: "10", y: "13", r: "0", g: "0", b: "255", a: "1.0", username: "House", t: "2018-07-04 02:40:55.011356+00"},
-    //   {x: "10", y: "14", r: "0", g: "0", b: "255", a: "1.0", username: "House", t: "2018-07-04 02:40:55.011356+00"},
-    //   {x: "10", y: "15", r: "0", g: "0", b: "255", a: "1.0", username: "House", t: "2018-07-04 02:40:55.011356+00"},
-    //   {x: "10", y: "16", r: "0", g: "0", b: "255", a: "1.0", username: "House", t: "2018-07-04 02:40:55.011356+00"},
-    //   {x: "10", y: "17", r: "0", g: "0", b: "255", a: "1.0", username: "House", t: "2018-07-04 02:40:55.011356+00"},
-    //   {x: "10", y: "18", r: "0", g: "0", b: "255", a: "1.0", username: "House", t: "2018-07-04 02:40:55.011356+00"},
-    //   {x: "10", y: "19", r: "0", g: "0", b: "255", a: "1.0", username: "House", t: "2018-07-04 02:40:55.011356+00"},
-    //   {x: "11", y: "10", r: "0", g: "0", b: "255", a: "1.0", username: "House", t: "2018-07-04 02:40:55.011356+00"},
-    //   {x: "12", y: "10", r: "0", g: "0", b: "255", a: "1.0", username: "House", t: "2018-07-04 02:40:55.011356+00"},
-    //   {x: "13", y: "10", r: "0", g: "0", b: "255", a: "1.0", username: "House", t: "2018-07-04 02:40:55.011356+00"},
-    //   {x: "14", y: "10", r: "0", g: "0", b: "255", a: "1.0", username: "House", t: "2018-07-04 02:40:55.011356+00"},
-    //   {x: "15", y: "10", r: "0", g: "0", b: "255", a: "1.0", username: "House", t: "2018-07-04 02:40:55.011356+00"},
-    //   {x: "16", y: "10", r: "0", g: "0", b: "255", a: "1.0", username: "House", t: "2018-07-04 02:40:55.011356+00"},
-    //   {x: "17", y: "10", r: "0", g: "0", b: "255", a: "1.0", username: "House", t: "2018-07-04 02:40:55.011356+00"},
-    //   {x: "18", y: "10", r: "0", g: "0", b: "255", a: "1.0", username: "House", t: "2018-07-04 02:40:55.011356+00"},
-    //   {x: "19", y: "10", r: "0", g: "0", b: "255", a: "1.0", username: "House", t: "2018-07-04 02:40:55.011356+00"}
-    // ]);
   }
