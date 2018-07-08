@@ -1,3 +1,7 @@
+  function setup() {
+    window.setInterval(refresh());
+  }
+
   function refresh() {
       $.ajax({url: "/allPixels", success: function(result) {
         //console.log(result);
@@ -18,7 +22,7 @@
       var n = document.getElementById('form-name').value;
       var addurl = "/add?x=" + x.toString() + "&y=" + y.toString() + "&r=" + r.toString() + "&g=" + g.toString() + "&b=" + b.toString() + "&a=" + a.toString() + "&username=" + n.toString();
       $.ajax({url: addurl, success: function(){
-        var identity = "x" + x.toString() + "y" + y.toString();
-        $("#" + identity).css('backgroundColor', 'rgba(' + r.toString() + ', ' + g.toString() + ', ' + b.toString() + ', ' + a.toString() + ')');  
+        // submitted lol
+        refresh();
       }});
     }
