@@ -1,5 +1,7 @@
   function setup() {
-    window.setInterval(refresh(), 5000);
+    $(function(){
+      setInterval(refresh, 1000);
+      });
   }
 
   function refresh() {
