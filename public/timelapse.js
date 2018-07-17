@@ -3,7 +3,8 @@ let pixels = [];
 function timelapse() {
     $.ajax({url: "/allPixels", success: function(result) {
         pixels = result;
-        
+        console.log("got pixels");
+        console.log(pixels);
         // result.forEach(row => {
         // var identity = "x" + (row.x).toString() + "y" + (row.y).toString();
         // $("#" + identity).css('backgroundColor', 'rgba(' + (row.r).toString() + ', ' + (row.g).toString() + ', ' + (row.b).toString() + ', ' + (row.a).toString() + ')');
