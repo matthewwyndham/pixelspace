@@ -1,20 +1,25 @@
-function sleep(milliseconds) {
-    var start = new Date().getTime();
-    for (var i = 0; i < 1e7; i++) {
-      if ((new Date().getTime() - start) > milliseconds){
-        break;
-      }
-    }
-  }
+let pixels = [];
 
 function timelapse() {
     $.ajax({url: "/allPixels", success: function(result) {
-      result.forEach(row => {
-        var identity = "x" + (row.x).toString() + "y" + (row.y).toString();
-        $("#" + identity).css('backgroundColor', 'rgba(' + (row.r).toString() + ', ' + (row.g).toString() + ', ' + (row.b).toString() + ', ' + (row.a).toString() + ')');
-        sleep(100);
-      });
+        pixels = result;
+        
+        // result.forEach(row => {
+        // var identity = "x" + (row.x).toString() + "y" + (row.y).toString();
+        // $("#" + identity).css('backgroundColor', 'rgba(' + (row.r).toString() + ', ' + (row.g).toString() + ', ' + (row.b).toString() + ', ' + (row.a).toString() + ')');
+    //   });
     }});
+
+    document.addEventListener('DOMContentLoaded', function() {  
+        sequence(pixels, function(row, next) {
+          var identity = "x" + (row.x).toString() + "y" + (row.y).toString();
+          $("#" + identity).css('backgroundColor', 'rgba(' + (row.r).toString() + ', ' + (row.g).toString() + ', ' + (row.b).toString() + ', ' + (row.a).toString() + ')');
+          
+          setTimeout(next, 500); // delay of 500ms between pixels
+        }, function() {
+          console.log('All through!');
+        });
+      });
   }
 
 function timelapseRefresh() {
@@ -26,3 +31,25 @@ function timelapseRefresh() {
     }
     timelapse();
 }
+
+
+function sequence(arr, each, done) {
+  let length = arr.length,
+      index;
+  (function next(arr, i) {
+    index = i || 0;
+    if (index < length) {
+      each(arr[index], (function(arr, i) {
+        return function() {
+          next(arr, i);
+        };
+      })(arr, ++index));
+    } else {
+      done();
+    }
+  })(arr);
+};
+
+
+
+
