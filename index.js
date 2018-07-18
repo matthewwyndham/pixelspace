@@ -26,7 +26,6 @@ express()
   .set('views', path.join(__dirname, 'views'))
   .set('view engine', 'ejs')
   .get('/', (req, res) => res.render('pages/index'))
-  .get('/timelapse', (req, res) => res.render('pages/timelapse'))
   .get('/add', addPixel)
   .get('/allPixels', getPixels) // this will be called by ajax on the main page
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
